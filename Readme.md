@@ -19,3 +19,8 @@ To install the dependencies listed in the requirements.txt file on another machi
 ```
 pip install -r requirements.txt
 ```
+
+# How to run server
+```
+flask --app node_server run -h 127.0.0.1 -p 8080
+```
