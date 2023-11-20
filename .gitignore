@@ -1,0 +1,20 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# IDE-specific files
+.vscode/
+*.pyc
+
+# Compiled Python files
+*.pyc
+
+# Ignore pipenv virtual environment
+Pipfile.lock
+
+# Ignore macOS system files
+.DS_Store
+
+/venv/lib

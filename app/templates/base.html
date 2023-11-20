@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <title>{{ tittle }}</title>
+    </head>
+    <body>
+        <div><a href="/index">Home</a></div>
+        <center><h1>{{ tittle }}</h1></center>
+        <hr>
+        {% with massages = get_flashed_message () %}
+        % if message %
+        <ul>
+        {% for message in messages %}
+            <li>{{ message }} </li>
+        {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+        {% block content %} {% endblock %}
+    </body>
+</html>
+        
