@@ -33,7 +33,7 @@ def fetch_posts():
 @app.route('/')
 def index():
     fetch_posts()
-    return render_template('index.html', tittle='YourNet: Decentralized content sharing',
+    return render_template('index.html', title='YourNet: Decentralized content sharing',
                            posts=posts,
                            node_address = CONNECTED_NODE_ADDRESS,
                            redable_time = timestamp_to_string)

@@ -22,5 +22,12 @@ pip install -r requirements.txt
 
 # How to run server
 ```
-flask --app node_server run -h 127.0.0.1 -p 8080
+source venv/bin/activate
+flask --app node_server run -h 127.0.0.1 -p 8000 --debugger
+```
+
+# How to run app
+```
+source venv/bin/activate
+python run_app.py
 ```
