@@ -1,4 +1,4 @@
-import time
+import time, datetime
 from models.block import Block
 
 class Blockchain:

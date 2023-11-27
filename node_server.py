@@ -74,7 +74,29 @@ def register_new_peers():
 
     #Return the consensus blockchain to the newly registered node so that he can sync
     return get_chain()
-
+def register_with_existing_node():
+    """
+    Internally calls the 'register_node' endpoint to register current node with the node specified in the request and sync the blockchain as well as peer data.
+    """
+    node_address = request.get_json()["node_address"]
+    if not node_address:
+        return "Invalid data", 400
+    data = {"node_address": request.host_url}
+    headers = {'Content-Type': "application/json"}
+    #Make a request to register with remote node and obtain information
+    response = requests.post(node_address + "/register_node",
+                             data=json.dumps(data), headers=headers)
+    if response.status_code == 200:
+        global blockchain
+        global peers
+        # update chain and the peers
+        chain_dump = response.json()['chain']
+        blockchain = create_chain_from_dump(chain_dump)
+        peers.update(response.json()['peers'])
+        return "Registration successful", 200
+    else:
+        #if something goes wrong, pass it on to the API response
+        return response.content, response.status_code
 def create_chain_from_dump(chain_dump):
     generated_blockchain = Blockchain()
     generated_blockchain.create_genesis_block()

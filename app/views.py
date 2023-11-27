@@ -36,7 +36,7 @@ def index():
     return render_template('index.html', title='YourNet: Decentralized content sharing',
                            posts=posts,
                            node_address = CONNECTED_NODE_ADDRESS,
-                           redable_time = timestamp_to_string)
+                           readable_time = timestamp_to_string)
 
 
 @app.route('/submit', methods=['POST'])
