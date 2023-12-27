@@ -9,7 +9,7 @@ from models.block import Block
 from models.blockchain import Blockchain
 
 # Initialize flask application
-app = Flask(__name__)
+app = Flask(__name__, static_folder='/app/static')
 
 # The node's copy of blockchain
 blockchain = Blockchain()
@@ -26,7 +26,7 @@ def hello_world():
 @app.route('/new_transaction', methods=['POST'])
 def new_transaction():
     tx_data = request.get_json()
-    required_fields = ["author","content"]
+    required_fields = ["name","email","phone","date","time","services"]
 
     for field in required_fields:
         if not tx_data.get(field):

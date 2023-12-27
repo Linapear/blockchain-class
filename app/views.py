@@ -33,7 +33,31 @@ def fetch_posts():
 @app.route('/')
 def index():
     fetch_posts()
-    return render_template('index.html', title='YourNet: Decentralized content sharing',
+    return render_template('./html/home.html', title='Lina Beauty', home="current",
+                           posts=posts,
+                           node_address = CONNECTED_NODE_ADDRESS,
+                           readable_time = timestamp_to_string)
+
+@app.route('/contacts')
+def contacts():
+    fetch_posts()
+    return render_template('./html/contacts.html', title='Lina Beauty', contacts="current",
+                           posts=posts,
+                           node_address = CONNECTED_NODE_ADDRESS,
+                           readable_time = timestamp_to_string)
+
+@app.route('/services')
+def services():
+    fetch_posts()
+    return render_template('./html/services.html', title='Lina Beauty', services="current",
+                           posts=posts,
+                           node_address = CONNECTED_NODE_ADDRESS,
+                           readable_time = timestamp_to_string)
+
+@app.route('/booking')
+def booking():
+    fetch_posts()
+    return render_template('./html/booking.html', title='Lina Beauty',  booking="current",
                            posts=posts,
                            node_address = CONNECTED_NODE_ADDRESS,
                            readable_time = timestamp_to_string)
@@ -44,11 +68,19 @@ def submit_textarea():
     """
     Endpoint to create a new transaction via our application.
     """
-    post_content = request.form["content"]
-    author = request.form["author"]
+    name = request.form["name"]
+    email = request.form["email"]
+    phone = request.form["phone"]
+    date = request.form["date"]
+    time = request.form["time"]
+    services = request.form["services"]
     post_object = {
-        'author': author,
-        'content': post_content,
+        'name': name,
+        'email': email,
+        'phone': phone,
+        'date': date,
+        'time': time,
+        'services': services,
     }
     # Submit a transaction
     new_tx_address = "{}/new_transaction".format(CONNECTED_NODE_ADDRESS)
@@ -57,6 +89,7 @@ def submit_textarea():
                   json=post_object,
                   headers={'Content-type': 'application/json'})
     
+    requests.get("{}/mine".format(CONNECTED_NODE_ADDRESS))
     return redirect('/')
 
 def timestamp_to_string(epoch_time):

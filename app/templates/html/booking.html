@@ -1,0 +1,107 @@
+<!-- extend base layout -->
+{% extends "base.html" %}
+{% block content %}
+</head>
+<body>
+<div class="extra-block">
+  <section id="content">
+    <div class="main-block">
+      <div class="container_12">
+        <div class="wrapper border-vert">
+          <article class="grid_5">
+            <h3>Online Booking</h3>
+            <form id="booking-form" action="/submit" method="post">
+              <div class="success"> Booking form submitted! <strong>We will be in touch soon.</strong> </div>
+              <fieldset>
+                <div>
+                  <label class="name">
+                    <h6>Full Name</h6>
+                    <input type="text" placeholder="Name">
+                    <br>
+                    <span class="error">*This is not a valid name.</span> <span class="empty">*This field is required.</span>
+                  </label>
+                </div>
+                <div>
+                  <label class="email">
+                    <h6>Email</h6>
+                    <input type="email" placeholder="E-mail">
+                    <br>
+                    <span class="error">*This is not a valid email address.</span> <span class="empty">*This field is required.</span>
+                  </label>
+                </div>
+                <div>
+                  <label class="phone">
+                    <h6>Phone Number</h6>
+                    <input type="tel" placeholder="Phone">
+                    <br>
+                    <span class="error">*This is not a valid phone number.</span> <span class="empty">*This field is required.</span>
+                  </label>
+                </div>
+                <div>
+                  <label class="date">
+                    <h6>Booking Date</h6>
+                    <input type="date" placeholder="Date">
+                    <br>
+                    <span class="error">*This is not a valid date.</span> <span class="empty">*This field is required.</span>
+                  </label>
+                </div>
+                <div>
+                  <label class="time">
+                    <h6>Time</h6>
+                    <input type="time" placeholder="Time">
+                    <br>
+                    <span class="error">*This is not a valid time.</span> <span class="empty">*This field is required.</span>
+                  </label>
+                </div>
+                <div>
+                  <!-- <label for="services"> -->
+                  <h6>Select service</h6>
+                    <select id="services" name="services[]">
+                      <option value="" disabled selected>Service</option>
+                      <option value="Nails Care">Nails Care</option>
+                      <option value="Hair Care">Hair Care</option>
+                      <option value="Facial Care">Facial Care</option>
+                    </select>
+                  </label>
+                  <br>
+                  <span class="empty">*Please select one service.</span>
+                </div>                
+                <br>
+                
+                <div class="buttons-wrapper" style="text-align: center;">
+                  <a class="button" data-type="reset">Clear</a>
+                  <!-- <a class="button" data-type="submit">Post Schedule</a> --> <!--post -->
+                  <button class="button" type="submit">Send</button> <!--request to mine-->
+                </div>
+              </fieldset>
+            </form>
+          </article>
+          <article class="grid_5 prefix_1">
+            <h3>Schedule</h3>
+            {% for post in posts %}
+            <div class="name-header">{{post.name}}</div>
+            <div class="date-header">{{post.date}}</div>
+            <div class="time-header">{{post.time}}</div>
+            <div class="services">{{post.services}}</div>
+            {% endfor %}
+            <!-- <fieldset>
+              <div class="buttons-wrapper" style="text-align: center;">
+              <button class="button" type="submit">Refresh</button>
+            </div>
+          </fieldset> -->
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="block">
+  <footer>
+    <div class="main aligncenter">
+      <div class="privacy"><strong>Lina Beauty &copy; 2045</a></strong></div>
+    </div>
+  </footer>
+</div>
+</body>
+</html>
+{% endblock %}

@@ -1,11 +1,42 @@
 <html>
 <head>
+    <!--[if lt IE 9]>   
+    <script src="js/html5shiv.js"></script>
+    <link href="css/ie.css" rel="stylesheet" type="text/css" media="screen">
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:600" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:700" rel="stylesheet" type="text/css">  
+    <![endif]-->
     <title> {{ title }} </title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="icon" href="/static/images/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/static/images/favicon.ico" type="image/x-icon">
+    <script src="/static/js/jquery.js"></script>
+    <script src="/static/js/jquery-migrate-1.1.1.js"></script>
+    <script src="/static/js/bgstretcher.js"></script>
+    <script src="/static/js/forms.js"></script>
+    <script>
+    $(document).ready(function () {
+        $('body').bgStretcher({
+            images: ['/static/images/slide-1.jpg', '/static/images/slide-2.jpg', '/static/images/slide-3.jpg'],
+            imageWidth: 1600,
+            imageHeight: 964,
+            resizeProportionally: true,
+            slideDirection: 'N',
+            slideShowSpeed: 1000,
+            transitionEffect: 'fade',
+            sequenceMode: 'normal',
+            pagination: '#nav'
+        });
+    });
+    </script>
 </head>
 <body>
-    <div><a href="/">Home</a></div>
-    <center><h1> {{ title }} </h1></center>
-    <hr>
+    <!-- <div><a href="/">Home</a></div> -->
+    <!-- <center><h1> {{ title }} </h1></center> -->
+    <!-- <hr>
     {% with messages = get_flashed_messages() %}
     {% if messages %}
     <ul>
@@ -14,7 +45,33 @@
         {% endfor %}
     </ul>
     {% endif %}
-    {% endwith %}
-    {% block content %} {% endblock %}
+    {% endwith %}-->
+    <div class="">
+        <div class="row-top">
+            <div class="main">
+                <ul class="list-soc">
+                <li><a href="#"><img alt="" src="/static/images/soc-icon1.png"></a></li>
+                <li><a href="#"><img alt="" src="/static/images/soc-icon2.png"></a></li>
+                </ul>
+            </div>
+        </div>
+        <header>
+            <div class="row-nav">
+                <div class="main">
+                <h1 class="logo"><a href="/"><img alt="" src="/static/images/logo.png" style="max-width: 50%; max-height: 50%;"></a></h1>
+                <nav>
+                    <ul class="menu">
+                    <li class="{{ home }}"><a href="/">Home</a></li>
+                    <li class="{{ services }}"><a href="services">Our Services</a></li>
+                    <li class="{{ booking }}"><a href="booking">Online Booking</a></li>
+                    <li class="{{ contacts }}"><a href="contacts">Visit Us</a></li>
+                    </ul>
+                </nav>
+                <div class="clear"></div>
+                </div>
+            </div>
+        </header>
+    </div>
+    {% block content %} {% endblock %} 
 </body>
 </html>
