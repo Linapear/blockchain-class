@@ -91,7 +91,7 @@
 						})
 					},
 					getValFromLabel:function(label){
-						var val=$('input,textarea',label).val()
+						var val=$('input,textarea,select',label).val()
 							,defVal=label.data('defVal')								
 						return label.length?val==defVal?'nope':val:'nope'
 					}
@@ -107,7 +107,7 @@
 									phone:_.getValFromLabel($('.phone',_.form)),
 									date:_.getValFromLabel($('.date',_.form)),
 									time:_.getValFromLabel($('.time',_.form)),
-									services:_.getValFromLabel($('.services',_.form)),
+									services: $('#services').val(),
 								},
 								success: function(){
 									_.showFu()

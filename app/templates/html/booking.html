@@ -54,41 +54,46 @@
                   </label>
                 </div>
                 <div>
-                  <!-- <label for="services"> -->
                   <h6>Select service</h6>
-                    <select id="services" name="services[]">
+                  <select id="services" name="services">
                       <option value="" disabled selected>Service</option>
                       <option value="Nails Care">Nails Care</option>
                       <option value="Hair Care">Hair Care</option>
                       <option value="Facial Care">Facial Care</option>
-                    </select>
-                  </label>
+                  </select>
                   <br>
                   <span class="empty">*Please select one service.</span>
-                </div>                
+              </div>
+                          
                 <br>
                 
                 <div class="buttons-wrapper" style="text-align: center;">
                   <a class="button" data-type="reset">Clear</a>
-                  <!-- <a class="button" data-type="submit">Post Schedule</a> --> <!--post -->
                   <button class="button" type="submit">Send</button> <!--request to mine-->
                 </div>
               </fieldset>
             </form>
+          <fieldset>
           </article>
           <article class="grid_5 prefix_1">
-            <h3>Schedule</h3>
-            {% for post in posts %}
-            <div class="name-header">{{post.name}}</div>
-            <div class="date-header">{{post.date}}</div>
-            <div class="time-header">{{post.time}}</div>
-            <div class="services">{{post.services}}</div>
-            {% endfor %}
-            <!-- <fieldset>
-              <div class="buttons-wrapper" style="text-align: center;">
-              <button class="button" type="submit">Refresh</button>
+            <h3>Scheduled Appointment</h3>
+            <div class="post-box" style="overflow-y: scroll; max-height: 340px;">
+              {% for post in posts %}
+                <div class="post-group">
+                  <h4>Client: {{ post.name }}</h4>
+                  <p>Date: {{ post.date }} &nbsp; Time: {{ post.time }}</p>
+                  <p>Service: {{ post.services }}</p>
+                  <hr> 
+                </div>
+              {% endfor %}
             </div>
-          </fieldset> -->
+            <br>
+            <br>
+           
+            <div class="buttons-wrapper" style="text-align: center;">
+            <button class="button" type="submit">Refresh</button>
+            </div>
+          </fieldset>
           </article>
         </div>
       </div>
