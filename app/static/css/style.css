@@ -188,14 +188,14 @@ z-index:100}
 	min-height: 55%;
 }
 
-.extra-block{background:url(../images/tail-bg-cont.png) repeat-x 0 bottom}
+/* .extra-block{background:url(../images/tail-bg-cont.png) repeat-x 0 bottom} */
 .extra-block1{ margin: 0 auto -5%;}
 
 
 /**********row-top*************/
 
 .row-top{overflow:hidden;background:url(../images/tail-bg-top.png);
-padding:28px 0 17px;
+padding:5px 0 5px;
 position:relative;
 z-index:10}
 .list-soc{float:right;margin-right:6px}

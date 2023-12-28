@@ -16,7 +16,7 @@
                 <div>
                   <label class="name">
                     <h6>Full Name</h6>
-                    <input type="text" placeholder="Name">
+                    <input type="text" placeholder="Name" required>
                     <br>
                     <span class="error">*This is not a valid name.</span> <span class="empty">*This field is required.</span>
                   </label>
@@ -24,7 +24,7 @@
                 <div>
                   <label class="email">
                     <h6>Email</h6>
-                    <input type="email" placeholder="E-mail">
+                    <input type="email" placeholder="E-mail" required>
                     <br>
                     <span class="error">*This is not a valid email address.</span> <span class="empty">*This field is required.</span>
                   </label>
@@ -32,7 +32,7 @@
                 <div>
                   <label class="phone">
                     <h6>Phone Number</h6>
-                    <input type="tel" placeholder="Phone">
+                    <input type="tel" placeholder="Phone" required>
                     <br>
                     <span class="error">*This is not a valid phone number.</span> <span class="empty">*This field is required.</span>
                   </label>
@@ -40,7 +40,7 @@
                 <div>
                   <label class="date">
                     <h6>Booking Date</h6>
-                    <input type="date" placeholder="Date">
+                    <input type="date" placeholder="Date" required>
                     <br>
                     <span class="error">*This is not a valid date.</span> <span class="empty">*This field is required.</span>
                   </label>
@@ -48,14 +48,14 @@
                 <div>
                   <label class="time">
                     <h6>Time</h6>
-                    <input type="time" placeholder="Time">
+                    <input type="time" placeholder="Time" required>
                     <br>
                     <span class="error">*This is not a valid time.</span> <span class="empty">*This field is required.</span>
                   </label>
                 </div>
                 <div>
                   <h6>Select service</h6>
-                  <select id="services" name="services">
+                  <select id="services" name="services" required>
                       <option value="" disabled selected>Service</option>
                       <option value="Nails Care">Nails Care</option>
                       <option value="Hair Care">Hair Care</option>
@@ -77,7 +77,7 @@
           </article>
           <article class="grid_5 prefix_1">
             <h3>Scheduled Appointment</h3>
-            <div class="post-box" style="overflow-y: scroll; max-height: 360px;">
+            <div class="post-box" style="overflow-y: scroll; height: 360px;">
               {% for post in posts %}
                 <div class="post-group">
                   <h4>Client: {{ post.name }}</h4>
@@ -88,10 +88,8 @@
               {% endfor %}
             </div>
             <br>
-            <br>
-           
             <div class="buttons-wrapper" style="text-align: center;">
-            <button class="button" type="submit">Refresh</button>
+            <button class="button" onClick="window.location.reload();">Refresh</button>
             </div>
           </fieldset>
           </article>
