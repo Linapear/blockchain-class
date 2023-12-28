@@ -1,5 +1,5 @@
-# Activate Virtual Environment (Optional but Recommended):
-It's a good practice to create and activate a virtual environment for your project before installing any packages. This helps isolate your project's dependencies from the global Python environment.
+# Activate Virtual Environment:
+Create and activate a virtual environment for the project before installing any packages. This helps isolate the project's dependencies from the global Python environment.
 ```
 # Create a virtual environment (Python 3)
 python3 -m venv venv
@@ -9,7 +9,7 @@ source venv/bin/activate   # On Linux or macOS
 ```
 
 # Generate requirements.txt:
-Once you have installed all the required packages, you can generate a requirements.txt file that lists all the installed packages and their versions.
+After installed all the required packages, generate a requirements.txt file that lists all the installed packages and their versions.
 ```
 pip freeze > requirements.txt
 ```
