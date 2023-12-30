@@ -31,7 +31,7 @@ flask --app node_server run -h 127.0.0.1 -p 8000 --debugger
 source venv/bin/activate
 python run_app.py
 ```
-# How to push on github
+# Push on github
 ```
 git commit -m "Your commit message here"
 git push origin main
