@@ -38,7 +38,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="/Users/lethingocanh/Documents/Subjects/Blockchain/blockchain/venv"
+VIRTUAL_ENV="/Users/lethingocanh/Documents/Subjects/Blockchain/Final project - Le Thi Ngoc Anh/blockchain/venv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
